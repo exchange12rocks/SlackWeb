@@ -2,6 +2,7 @@ function Get-ChannelMessages {
     Param (
         [Parameter(Mandatory)]
         [string]$ChannelID,
+        [Parameter(DontShow)]
         [string]$cursor
     )
 

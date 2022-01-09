@@ -2,12 +2,6 @@
 
 $ModulePath = $PSScriptRoot
 
-$RateLimitWebTier3 = 5
-$ModuleWideMessageRepliesRateLimitSeconds = $RateLimitWebTier3
-
-$ModuleWideFormBoundaryCommonPart = '----WebKitFormBoundary'
-$ModuleWideUA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4767.0 Safari/537.36 Edg/99.0.1113.0'
-
 foreach ($FunctionType in @('Private', 'Public')) {
     $Path = Join-Path -Path $ModulePath -ChildPath ('{0}\*.ps1' -f $FunctionType)
     if (Test-Path -Path $Path) {
@@ -16,6 +10,9 @@ foreach ($FunctionType in @('Private', 'Public')) {
 }
 
 $ModuleConfiguration = Get-Configuration
+$ModuleWideMessageRepliesRateLimitSeconds = $ModuleConfiguration.MessageRepliesRateLimitSeconds
+$ModuleWideFormBoundaryCommonPart = $ModuleConfiguration.FormBoundaryCommonPart
+$ModuleWideUA = $ModuleConfiguration.UA
 $ModuleWideToken = $ModuleConfiguration.Token
 $ModuleWideCookie = $ModuleConfiguration.Cookie
 
