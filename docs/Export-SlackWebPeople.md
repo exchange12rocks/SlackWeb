@@ -13,7 +13,7 @@ Exports all user accounts into a JSON-file.
 ## SYNTAX
 
 ```
-Export-SlackWebPeople [-OutFile] <String> [<CommonParameters>]
+Export-SlackWebPeople [-OutFile] <String> [-IncludeDeactivated] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -26,9 +26,31 @@ Exports all user accounts from your workspace (and connected to it) into a JSON-
 PS C:\> Export-SlackWebPeople -OutFile .\people.json
 ```
 
-Exports all user accounts from your workspace (and connected to it) into the JSON-file people.json.
+Exports all active user accounts from your workspace (and connected to it) into a JSON-file "people.json".
+
+### Example 1
+```powershell
+PS C:\> Export-SlackWebPeople -IncludeDeactivated -OutFile .\people.json
+```
+
+Exports all user accounts from your workspace (and connected to it) into a JSON-file "people.json".
 
 ## PARAMETERS
+
+### -IncludeDeactivated
+Specifies that deactivated accounts should be exported too.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
 
 ### -OutFile
 A path to the resulting file.
