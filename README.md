@@ -1,6 +1,6 @@
 # SlackWeb
 
-This module allows you to automate your Slack tasks (at least some!) w/o the need to register an application in your Slack workspace. All what you need is a regular user account. No need for an approval from your space administrator.
+This module allows you to automate Slack tasks (at least some!) w/o the need to register an application in your Slack workspace. All what you need is a regular user account. No need for an approval from your space administrator.
 
 It is possible by utilizing the Slack Web API - the API which the web-client uses. To execute methods of that API you need two pieces of authentication material: your user token (starts with "xoxc-") and one of your cookies (a so called "d-cookie").
 
