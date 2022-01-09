@@ -8,6 +8,7 @@ function Export-ChannelHistory {
         [Parameter(ParameterSetName = 'ID', Mandatory)]
         [ValidateScript({ Test-Path -Path $_ -PathType Container })]
         [string]$OutFolder,
+        [Parameter(DontShow)]
         [int]$MessageRepliesRateLimitSeconds = $ModuleWideMessageRepliesRateLimitSeconds
     )
 
