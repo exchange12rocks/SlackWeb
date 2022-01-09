@@ -14,7 +14,6 @@
         'Get-ChannelMessages'
         'Get-Channel'
         'Get-Configuration'
-        'Get-MessageReplies'
         'Get-People'
         'Set-Configuration'
     )
