@@ -19,7 +19,7 @@ Export-SlackWebChannelHistory -Name <String> -OutFolder <String> [<CommonParamet
 
 ### ID
 ```
-Export-SlackWebChannelHistory -ChannelID <String> -OutFolder <String> [<CommonParameters>]
+Export-SlackWebChannelHistory -ID <String[]> -OutFolder <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -36,27 +36,12 @@ Saves channel history from all channels available to you named "MyChannel" into 
 
 ### Example 2
 ```powershell
-PS C:\> Export-SlackWebChannelHistory -ChannelID AAA1AAA1A -OutFolder .\export
+PS C:\> Export-SlackWebChannelHistory -ID AAA1AAA1A -OutFolder .\export
 ```
 
 Saves channel history from the channel with ID AAA1AAA1A into the folder ".\export"
 
 ## PARAMETERS
-
-### -ChannelID
-The ID of a channel you want to export. You can get it from a URL in the web-interface: https://app.slack.com/client/<Team ID>/<Channel ID>
-
-```yaml
-Type: String
-Parameter Sets: ID
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
 
 ### -Name
 The name of a channel(s) to export.
@@ -79,6 +64,21 @@ The path to a folder where you want to put the exported data.
 ```yaml
 Type: String
 Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ID
+The ID of a channel you want to export. You can get it from a URL in the web-interface: https://app.slack.com/client/<Team ID>/<Channel ID>
+
+```yaml
+Type: String[]
+Parameter Sets: ID
 Aliases:
 
 Required: True

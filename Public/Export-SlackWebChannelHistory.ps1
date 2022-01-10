@@ -1,9 +1,9 @@
-function Export-ChannelHistory {
+function Export-SlackWebChannelHistory {
     Param (
         [Parameter(ParameterSetName = 'Name', Mandatory)]
         [string]$Name,
         [Parameter(ParameterSetName = 'ID', Mandatory)]
-        [string]$ChannelID,
+        [string[]]$ID,
         [Parameter(ParameterSetName = 'Name', Mandatory)]
         [Parameter(ParameterSetName = 'ID', Mandatory)]
         [ValidateScript({ Test-Path -Path $_ -PathType Container })]
@@ -12,14 +12,11 @@ function Export-ChannelHistory {
         [int]$MessageRepliesRateLimitSeconds = $ModuleWideMessageRepliesRateLimitSeconds
     )
 
-    $ChannelsID = if (-not $ChannelID) {
-        (Get-Channel -Name $Name).id
-    }
-    else {
-        @($ChannelID)
+    if (-not $ID) {
+        $ID = (Get-Channel -Name $Name).id
     }
 
-    foreach ($ChannelID in $ChannelsID) {
+    foreach ($ChannelID in $ID) {
         $Messages = Get-ChannelMessages -ChannelID $ChannelID
 
         foreach ($Message in $Messages) {

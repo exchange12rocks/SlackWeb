@@ -1,14 +1,9 @@
-function Get-People {
+function Get-SlackWebPeople {
     Param (
         [switch]$IncludeDeactivated
     )
 
-    $HideDeactivatedUsers = if ($IncludeDeactivated) {
-        0
-    }
-    else {
-        1
-    }
+    [int]$HideDeactivatedUsers = -not $IncludeDeactivated
 
     $FormData = @{
         module                 = 'people'

@@ -1,4 +1,4 @@
-function Get-Channel {
+function Get-SlackWebChannel {
     Param (
         [string]$Name,
         [string]$SearchString,

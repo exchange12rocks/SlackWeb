@@ -1,4 +1,4 @@
-function Export-People {
+function Export-SlackWebPeople {
     Param (
         [Parameter(Mandatory)]
         [string]$OutFile,
