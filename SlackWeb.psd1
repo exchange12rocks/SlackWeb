@@ -16,6 +16,7 @@
         'Get-Channel'
         'Get-Configuration'
         'Get-People'
+        'Send-Message'
         'Set-Configuration'
     )
     CmdletsToExport      = @()
