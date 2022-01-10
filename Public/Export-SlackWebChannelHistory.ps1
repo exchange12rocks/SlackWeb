@@ -1,4 +1,4 @@
-function Export-ChannelHistory {
+function Export-SlackWebChannelHistory {
     Param (
         [Parameter(ParameterSetName = 'Name', Mandatory)]
         [string]$Name,

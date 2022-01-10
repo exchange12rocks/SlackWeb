@@ -1,4 +1,4 @@
-function Get-ChannelMessages {
+function Get-SlackWebChannelMessages {
     Param (
         [Parameter(Mandatory)]
         [string]$ChannelID,

@@ -1,4 +1,4 @@
-function Get-People {
+function Get-SlackWebPeople {
     Param (
         [switch]$IncludeDeactivated
     )

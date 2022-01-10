@@ -1,4 +1,4 @@
-function Set-Configuration {
+function Set-SlackWebConfiguration {
     Param (
         [string]$Token = $ModuleWideToken,
         [string]$Cookie = $ModuleWideCookie,

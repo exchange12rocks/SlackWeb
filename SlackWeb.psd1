@@ -9,19 +9,18 @@
         'Configuration'
     )
     FunctionsToExport    = @(
-        'Clear-Configuration'
-        'Export-ChannelHistory'
-        'Export-People'
-        'Get-ChannelMessages'
-        'Get-Channel'
-        'Get-Configuration'
-        'Get-People'
-        'Send-Message'
-        'Set-Configuration'
+        'Clear-SlackWebConfiguration'
+        'Export-SlackWebChannelHistory'
+        'Export-SlackWebPeople'
+        'Get-SlackWebChannelMessages'
+        'Get-SlackWebChannel'
+        'Get-SlackWebConfiguration'
+        'Get-SlackWebPeople'
+        'Send-SlackWebMessage'
+        'Set-SlackWebConfiguration'
     )
     CmdletsToExport      = @()
     AliasesToExport      = @()
-    DefaultCommandPrefix = 'SlackWeb'
     HelpInfoURI          = 'https://github.com/exchange12rocks/SlackWeb/blob/main/README.md'
     PrivateData          = @{
         PSData = @{

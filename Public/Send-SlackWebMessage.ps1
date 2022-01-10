@@ -1,4 +1,4 @@
-function Send-Message {
+function Send-SlackWebMessage {
     Param (
         [Parameter(ParameterSetName = 'ChannelName', Mandatory)]
         [string]$ChannelName,
