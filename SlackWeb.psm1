@@ -9,7 +9,7 @@ foreach ($FunctionType in @('Private', 'Public')) {
     }
 }
 
-$ModuleConfiguration = Get-Configuration
+$ModuleConfiguration = Get-SlackWebConfiguration
 $ModuleWideMessageRepliesRateLimitSeconds = $ModuleConfiguration.MessageRepliesRateLimitSeconds
 $ModuleWideFormBoundaryCommonPart = $ModuleConfiguration.FormBoundaryCommonPart
 $ModuleWideUA = $ModuleConfiguration.UA
@@ -29,7 +29,7 @@ if (-not $ModuleWideCookie) {
 }
 
 if ($WriteDownConfig) {
-    Set-Configuration -InitialConfiguration
+    Set-SlackWebConfiguration -InitialConfiguration
 }
 
 $Headers = @{
