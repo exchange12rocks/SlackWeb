@@ -3,12 +3,7 @@ function Get-People {
         [switch]$IncludeDeactivated
     )
 
-    $HideDeactivatedUsers = if ($IncludeDeactivated) {
-        0
-    }
-    else {
-        1
-    }
+    [int]$HideDeactivatedUsers = -not $IncludeDeactivated
 
     $FormData = @{
         module                 = 'people'
