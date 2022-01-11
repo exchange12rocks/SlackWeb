@@ -27,9 +27,6 @@
             Tags                       = @()
             LicenseUri                 = 'https://github.com/exchange12rocks/SlackWeb/blob/main/LICENSE'
             ProjectUri                 = 'https://github.com/exchange12rocks/SlackWeb/'
-            ExternalModuleDependencies = @(
-                'Configuration'
-            )
             ReleaseNotes               = ''
         }
     }
