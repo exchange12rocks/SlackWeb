@@ -25,6 +25,7 @@ That's it: no need to manually specify your team - the module detects it automat
 ## What options are available now
 
 Currently the module allows you to:
++ send messages (`Send-SlackWebMessage`),
 + get/search for a channel (`Get-SlackWebChannel`),
 + get/export history from channels, direct messages, group messages (`Get-SlackWebChannelMessages`, `Export-SlackWebChannelHistory`);
 + get/export accounts from your workspace and all workspaces connected to it (`Get-SlackWebPeople`, `Export-SlackWebPeople`).
