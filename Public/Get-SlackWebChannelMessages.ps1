@@ -19,6 +19,6 @@ function Get-SlackWebChannelMessages {
     $ResponseProcessed.messages
 
     if ($ResponseProcessed.response_metadata.next_cursor) {
-        Get-ChannelMessages -ChannelID $ChannelID -cursor $ResponseProcessed.response_metadata.next_cursor
+        Get-SlackWebChannelMessages -ChannelID $ChannelID -cursor $ResponseProcessed.response_metadata.next_cursor
     }
 }

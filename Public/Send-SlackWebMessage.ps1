@@ -10,7 +10,7 @@ function Send-SlackWebMessage {
     )
 
     if (-not $ChannelID) {
-        $ChannelID = (Get-Channel -Name $ChannelName).id
+        $ChannelID = (Get-SlackWebChannel -Name $ChannelName).id
     }
 
     foreach ($CID in $ChannelID) {

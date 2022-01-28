@@ -6,10 +6,10 @@ function Export-SlackWebPeople {
     )
 
     $Result = if ($IncludeDeactivated) {
-        Get-People -IncludeDeactivated
+        Get-SlackWebPeople -IncludeDeactivated
     }
     else {
-        Get-People
+        Get-SlackWebPeople
     }
     $Result | ConvertTo-Json -Depth 10 | Set-Content -Path $OutFile
 }

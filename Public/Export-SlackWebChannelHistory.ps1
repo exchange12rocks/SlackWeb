@@ -13,11 +13,11 @@ function Export-SlackWebChannelHistory {
     )
 
     if (-not $ID) {
-        $ID = (Get-Channel -Name $Name).id
+        $ID = (Get-SlackWebChannel -Name $Name).id
     }
 
     foreach ($ChannelID in $ID) {
-        $Messages = Get-ChannelMessages -ChannelID $ChannelID
+        $Messages = Get-SlackWebChannelMessages -ChannelID $ChannelID
 
         foreach ($Message in $Messages) {
             if ($Message.reply_count) {
