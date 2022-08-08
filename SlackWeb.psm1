@@ -32,17 +32,14 @@ if ($WriteDownConfig) {
     Set-SlackWebConfiguration -InitialConfiguration
 }
 
-$Headers = @{
-    'method'          = 'GET'
-    'authority'       = '{0}.slack.com'
-    'scheme'          = 'https'
-    'path'            = ('/api/auth.test?token={0}' -f $ModuleWideToken)
-    'accept'          = 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
-    'accept-encoding' = 'gzip, deflate, br'
+$FormData = [ordered]@{
+    include_unlisted_if_admin = $false
+    token                     = '' # This property is filled by Invoke-ApiRequest
+    _x_reason                 = 'conditional-fetching'
 }
-$InitUri = 'https://slack.com/api/auth.test?token={0}' -f $ModuleWideToken
-$Response = Invoke-CustomWebRequest -Uri $InitUri -Headers $Headers
+
+$Response = Invoke-ApiRequest -Method 'team.info' -FormData $FormData
+
 $TeamInfo = $Response.Content | ConvertFrom-Json
-[uri]$TeamInfoUri = $TeamInfo.url
-$ModuleWideTeamUri = $TeamInfoUri.Host.Substring(0, $TeamInfoUri.Host.IndexOf('.'))
-$ModuleWideTeamID = $TeamInfo.team_id
+$ModuleWideTeamID = $TeamInfo.team.id
+$ModuleWideTeamDomain = $TeamInfo.team.domain

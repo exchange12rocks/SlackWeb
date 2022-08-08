@@ -1,6 +1,6 @@
 function Invoke-ApiRequest {
     Param (
-        [string]$TeamUri = $ModuleWideTeamUri,
+        [string]$TeamDomain = $ModuleWideTeamDomain,
         [string]$TeamID = $ModuleWideTeamID,
         [Parameter(Mandatory)]
         [string]$Method,
@@ -18,7 +18,9 @@ function Invoke-ApiRequest {
         $FormData.token = $token
     }
     if ($null -ne $FormData.team -and -not $FormData.team) {
-        $FormData.team = $TeamID
+        if ($TeamID) {
+            $FormData.team = $TeamID
+        }
     }
 
     if ($null -eq $FormData._x_mode) {
@@ -32,9 +34,15 @@ function Invoke-ApiRequest {
     $Body = $BodyTemplate -f $FormBoundaryRandomPart
 
     $RelativeUri = '/api/{0}' -f $Method
+    $TeamDomainString = if ($TeamDomain) {
+        '{0}.' -f $TeamDomain
+    }
+    else {
+        $null
+    }
     $Headers = @{
         'method'          = 'POST'
-        'authority'       = ('{0}.slack.com' -f $TeamUri)
+        'authority'       = '{0}slack.com' -f $TeamDomainString
         'scheme'          = 'https'
         'path'            = $RelativeUri
         'accept'          = '*/*'
@@ -45,7 +53,7 @@ function Invoke-ApiRequest {
     $FormBoundary = ('{0}{1}' -f $FormBoundaryCommonPart, $FormBoundaryRandomPart)
 
     $InvokeCustomWebRequestParameters = @{
-        Uri         = ('https://{0}.slack.com{1}' -f $TeamUri, $RelativeUri)
+        Uri         = ('https://{0}slack.com{1}' -f $TeamDomainString, $RelativeUri)
         Method      = 'POST'
         Headers     = $Headers
         ContentType = ('multipart/form-data; boundary={0}' -f $FormBoundary)
