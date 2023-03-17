@@ -47,7 +47,7 @@ function Invoke-ApiRequest {
         'path'            = $RelativeUri
         'accept'          = '*/*'
         'origin'          = 'https://app.slack.com'
-        'accept-encoding' = 'gzip, deflate, br'
+        'accept-encoding' = 'gzip, deflate'
     }
 
     $FormBoundary = ('{0}{1}' -f $FormBoundaryCommonPart, $FormBoundaryRandomPart)
