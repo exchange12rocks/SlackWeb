@@ -1,6 +1,6 @@
 @{
     RootModule           = 'SlackWeb.psm1'
-    ModuleVersion        = '0.1.3'
+    ModuleVersion        = '0.2'
     GUID                 = '0c253c7c-e520-483e-89f9-c24cea05691b'
     Author               = 'Kirill Nikolaev'
     Description          = 'Enables you to work with Slack via the web-API rather then the regular API. This allows you to automate Slack actions w/o registering an application in your workspace.'

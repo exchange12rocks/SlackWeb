@@ -405,7 +405,7 @@
         </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>-------------------------- Example w --------------------------</maml:title>
+        <maml:title>-------------------------- Example 4 --------------------------</maml:title>
         <dev:code>PS C:\&gt; Get-SlackWebChannel -SearchString 'admin'</dev:code>
         <dev:remarks>
           <maml:para>Returns all channels that have "admin" the the name or the description.</maml:para>
