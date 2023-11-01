@@ -42,7 +42,7 @@ PS C:\> Get-SlackWebChannel -Name '*MyChannel*' -SearchString 'admin'
 
 Returns all channels that have "MyChannel" in their name AND "admin" the the name or the description.
 
-### Example w
+### Example 4
 ```powershell
 PS C:\> Get-SlackWebChannel -SearchString 'admin'
 ```
