@@ -20,6 +20,9 @@ function Export-SlackWebFile {
             Write-Error -Message ('Error while downloading file {0} ({1}).' -f $File.id, $File.url_private_download) -TargetObject $File -Exception $_.Exception
         }
     }
+    elseif ($File.mode -in ('tombstone')) {
+        # Do nothing - this is a non-existing file
+    }
     else {
         Write-Error -Message ('File {0} of the type "{1}" is not supported yet.' -f $File.id, $File.mode) -TargetObject $File -Exception (New-Object -TypeName 'System.NotSupportedException')
     }
