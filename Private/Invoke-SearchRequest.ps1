@@ -31,14 +31,20 @@ function Invoke-SearchRequest {
     }
 
     $Response = (Invoke-ApiRequest -FormData $FormDataCommon -Method 'search.modules').Content | ConvertFrom-Json
-    $Response.items
 
-    $PageCount = $Response.pagination.page_count
-    if ($PageCount -gt 1) {
-        for ($Page = 2; $Page -le $PageCount; $Page++) {
-            $FormDataCommon.page = $Page
-            $Response = (Invoke-ApiRequest -FormData $FormDataCommon -Method 'search.modules').Content | ConvertFrom-Json
-            $Response.items
+    if ($Response.ok -eq $false) {
+        Write-Error -Message $Response.error
+    }
+    else {
+        $Response.items
+
+        $PageCount = $Response.pagination.page_count
+        if ($PageCount -gt 1) {
+            for ($Page = 2; $Page -le $PageCount; $Page++) {
+                $FormDataCommon.page = $Page
+                $Response = (Invoke-ApiRequest -FormData $FormDataCommon -Method 'search.modules').Content | ConvertFrom-Json
+                $Response.items
+            }
         }
     }
 }
